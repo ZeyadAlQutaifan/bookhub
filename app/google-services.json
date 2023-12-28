@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "959333822002",
+    "project_id": "bookhub-7f382",
+    "storage_bucket": "bookhub-7f382.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:959333822002:android:0fa10719cbc5dcbb49962b",
+        "android_client_info": {
+          "package_name": "com.example.bookhub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWmKQDw6BpMsAeRs6ak6pYCe8oYNADQ2w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

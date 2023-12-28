@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">BookHub</string>
+    <string name="enter_email">Email</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="dasboard">Dashboard</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="setting">Setting</string>
+    <!-- res/values/strings.xml -->
+
+    <string-array name="jordan_universities">
+        <item>University of Jordan</item>
+        <item>Yarmouk University</item>
+        <item>Hashemite University</item>
+        <item>Al-Balqa Applied University</item>
+        <item>German Jordanian University</item>
+        <item>Princess Sumaya University for Technology</item>
+        <item>Philadelphia University</item>
+        <item>Al-Hussein Bin Talal University</item>
+        <item>Al-Isra University</item>
+        <item>American University of Madaba</item>
+        <item>Applied Science Private University</item>
+        <item>Jordan University of Science and Technology</item>
+        <item>Mutah University</item>
+        <item>Tafila Technical University</item>
+        <item>Jadara University</item>
+        <item>Zarqa University</item>
+        <!-- Add more universities as needed -->
+    </string-array>
+
+    <string-array name="departments_array">
+        <item>Information Technology</item>
+        <item>Technical Engineering</item>
+        <item>Science</item>
+        <item>Pharmacy</item>
+        <item>Business Information</item>
+        <item>Financial</item>
+        <item>Mathematics</item>
+        <item>History</item>
+        <item>Literature</item>
+        <item>Low</item>
+    </string-array>
+
+    <string-array name="category_array">
+        <item>Needed</item>
+        <item>I have</item>
+    </string-array>
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title">Boobk Title</string>
+    <string name="university">University</string>
+    <string name="department">Department</string>
+    <string name="i_have">I have</string>
+    <string name="not_reserved">Not Reserved</string>
+    <string name="enter_full_name">Enter Full Name</string>
+    <string name="signup">Signup</string>
+    <string name="what_you_post">What you posting</string>
+    <string name="category">Category</string>
+    <string name="add_images">Add Images (Optional)</string>
+    <string name="add_book">Add Book</string>
+    <string name="add_profile_picture">Add Profile Picture</string>
+    <string name="user_name">User full name</string>
+    <string name="confirm_password">Coinfirm Password</string>
+
+
+</resources>
