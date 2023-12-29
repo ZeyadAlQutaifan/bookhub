@@ -3,13 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/colorSecondaryContainer"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.BookPageFragment">
 
    <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="match_parent"
+       android:layout_margin="8dp"
       android:orientation="vertical">
+      <ImageView
+          android:layout_width="24dp"
+          android:layout_height="24dp"
+         android:src="@drawable/baseline_arrow_back_24"/>
       <com.denzcoskun.imageslider.ImageSlider
           android:id="@+id/image_slider"
           android:layout_width="wrap_content"
@@ -18,7 +24,81 @@
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintTop_toTopOf="parent" />
 
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
 
+         <com.makeramen.roundedimageview.RoundedImageView
+             android:id="@+id/imgUser"
+             android:layout_width="40dp"
+             android:layout_height="40dp"
+             android:layout_gravity="center"
+             android:layout_margin="10dp"
+             android:elevation="2dp"
+             android:scaleType="centerCrop"
+             android:src="@drawable/ic_add_image"
+             app:contentPadding="8dp"
+             app:riv_corner_radius="15dp"
+             tools:ignore="UnusedAttribute" />
+
+         <TextView
+             android:id="@+id/tvUserName"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center_vertical"
+             android:text="user name" />
+      </LinearLayout>
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textAppearance="?attr/textAppearanceHeadline6"
+          android:text="@string/title"
+         android:id="@+id/txtBootTitle"/>
+      <com.google.android.material.divider.MaterialDivider
+          android:id="@+id/materialDivider"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="8dp" />
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textAppearance="?attr/textAppearanceBody1"
+          android:text="@string/title"
+          android:id="@+id/txtBookUniversity"/>
+      <com.google.android.material.divider.MaterialDivider
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="8dp" />
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textAppearance="?attr/textAppearanceBody1"
+          android:text="@string/title"
+          android:id="@+id/txtBookDepartment"/>
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:weightSum="2"
+         android:orientation="horizontal">
+         <Button
+             android:id="@+id/material_icon_button"
+             style="@style/Widget.Material3.Button.Icon"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:text="@string/call"
+             android:layout_weight="1"
+             app:icon="@drawable/baseline_call_24"/>
+         <Button
+             android:id="@+id/material_icon_button1"
+             style="@style/Widget.Material3.Button.Icon"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:text="@string/call"
+             app:icon="@drawable/baseline_chat_bubble_24"/>
+
+      </LinearLayout>
    </LinearLayout>
 
 </ScrollView>

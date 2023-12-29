@@ -61,6 +61,8 @@
     <string name="add_profile_picture">Add Profile Picture</string>
     <string name="user_name">User full name</string>
     <string name="confirm_password">Coinfirm Password</string>
+    <string name="chats">Chats</string>
+    <string name="call">"Call "</string>
 
 
 </resources>

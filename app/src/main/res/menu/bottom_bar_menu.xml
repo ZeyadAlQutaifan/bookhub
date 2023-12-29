@@ -7,9 +7,9 @@
         android:title="@string/dashboard"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/menu_setting"
-        android:icon="@drawable/baseline_settings_24"
-        android:title="@string/setting"
+        android:id="@+id/menu_chats"
+        android:icon="@drawable/baseline_chat_bubble_24"
+        android:title="@string/chats"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_profile"

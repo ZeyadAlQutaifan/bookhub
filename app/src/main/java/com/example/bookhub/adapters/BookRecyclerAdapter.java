@@ -19,15 +19,22 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.makeramen.roundedimageview.RoundedImageView;
 
 public class BookRecyclerAdapter extends FirestoreRecyclerAdapter<Book , BookRecyclerAdapter.BookViewHolder> {
+    public interface OnItemClickListener {
+        void onItemClick(String placeId);
+    }
 
-    public BookRecyclerAdapter(@NonNull FirestoreRecyclerOptions<Book> options) {
+    private OnItemClickListener onItemClickListener;
+    public BookRecyclerAdapter(@NonNull FirestoreRecyclerOptions<Book> options , OnItemClickListener onItemClickListener) {
         super(options);
+        this.onItemClickListener = onItemClickListener;
+
     }
 
     @Override
@@ -67,6 +74,8 @@ public class BookRecyclerAdapter extends FirestoreRecyclerAdapter<Book , BookRec
     }
 
     public class BookViewHolder extends RecyclerView.ViewHolder {
+        MaterialCardView materialCardView;
+
         TextView tvTitle ;
         TextView tvUserName ;
         RoundedImageView imgBook;
@@ -82,6 +91,16 @@ public class BookRecyclerAdapter extends FirestoreRecyclerAdapter<Book , BookRec
              chpUniversity = itemView.findViewById(R.id.chpUniversity) ;
              chDepartment = itemView.findViewById(R.id.chDepartment) ;
              imgUser = itemView.findViewById(R.id.imgUser) ;
-        }
+             materialCardView = itemView.findViewById(R.id.materialCardView);
+             materialCardView.setOnClickListener(new View.OnClickListener() {
+                 @Override
+                 public void onClick(View v) {
+                     // Call onItemClick when an item is clicked
+                     if (onItemClickListener != null) {
+                         onItemClickListener.onItemClick(getSnapshots().getSnapshot(getAdapterPosition()).getId());
+                     }
+                 }
+             });
+         }
     }
 }

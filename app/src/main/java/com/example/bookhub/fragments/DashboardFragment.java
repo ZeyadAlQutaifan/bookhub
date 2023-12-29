@@ -3,6 +3,7 @@ package com.example.bookhub.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
@@ -33,7 +34,17 @@ public class DashboardFragment extends Fragment {
         FirestoreRecyclerOptions<Book> bookOptions = new FirestoreRecyclerOptions.Builder<Book>()
                 .setQuery(query, Book.class)
                 .build();
-        bookRecyclerAdapter = new BookRecyclerAdapter(bookOptions) ;
+        BookRecyclerAdapter.OnItemClickListener itemClickListener = new BookRecyclerAdapter.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(String placeId) {
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container,  BookPageFragment.newInstance(placeId));
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        };
+        bookRecyclerAdapter = new BookRecyclerAdapter(bookOptions ,itemClickListener) ;
         binding.recyclerBooks.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.recyclerBooks.setAdapter(bookRecyclerAdapter);
         String[] universities = getResources().getStringArray(R.array.jordan_universities);

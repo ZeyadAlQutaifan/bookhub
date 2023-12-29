@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 if(item.getItemId() == R.id.menu_dashboard){
                     replaceFragment(new DashboardFragment());
                     return true;
-                } else if (item.getItemId() == R.id.menu_setting) {
+                } else if (item.getItemId() == R.id.menu_chats) {
                     replaceFragment(new SettingFragment());
                     return true;
                 } else if (item.getItemId() == R.id.menu_profile) {
