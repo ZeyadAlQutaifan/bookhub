@@ -63,6 +63,12 @@
     <string name="confirm_password">Coinfirm Password</string>
     <string name="chats">Chats</string>
     <string name="call">"Call "</string>
+    <string name="chat">Chat</string>
+    <string name="enter_phone">Phone</string>
+    <string name="signout">Signout</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="save">Save</string>
+    <string name="update_profile_picture">Update Profile Picture</string>
 
 
 </resources>

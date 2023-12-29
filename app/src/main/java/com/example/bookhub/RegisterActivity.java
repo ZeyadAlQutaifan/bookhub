@@ -59,6 +59,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         String username = Objects.requireNonNull(binding.etFullName.getText()).toString().trim();
         String email = Objects.requireNonNull(binding.etEmail.getText()).toString().trim();
+        String phone = Objects.requireNonNull(binding.etPhone.getText()).toString().trim();
         String password = binding.etPassword.getText().toString();
         String confirmPassword = binding.etConfirmPassword.getText().toString();
 
@@ -70,6 +71,11 @@ public class RegisterActivity extends AppCompatActivity {
         if(email.isEmpty()){
             binding.etEmail.setError("Required!");
             binding.etEmail.requestFocus();
+            return;
+        }
+        if(phone.isEmpty()){
+            binding.etPhone.setError("Required!");
+            binding.etPhone.requestFocus();
             return;
         }
 
@@ -88,15 +94,17 @@ public class RegisterActivity extends AppCompatActivity {
             binding.etConfirmPassword.requestFocus();
             return;
         }
+
         if (imgUri == null){
             Toast.makeText(this, "Select Image", Toast.LENGTH_SHORT).show();
             return;
         }
+
         User newUser = new User();
         newUser.setFullName(username);
         newUser.setEmail(email);
         newUser.setDeviceTokens("");
-
+        newUser.setPhone(phone);
 
         Authentication.createUser(email , password)
                 .addOnSuccessListener(new OnSuccessListener<AuthResult>() {

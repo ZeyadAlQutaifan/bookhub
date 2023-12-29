@@ -14,7 +14,7 @@ import com.example.bookhub.databinding.ActivityMainBinding;
 import com.example.bookhub.fragments.AddBookFragment;
 import com.example.bookhub.fragments.DashboardFragment;
 import com.example.bookhub.fragments.ProfileFragment;
-import com.example.bookhub.fragments.SettingFragment;
+import com.example.bookhub.fragments.ChatsFragment;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                     replaceFragment(new DashboardFragment());
                     return true;
                 } else if (item.getItemId() == R.id.menu_chats) {
-                    replaceFragment(new SettingFragment());
+                    replaceFragment(new ChatsFragment());
                     return true;
                 } else if (item.getItemId() == R.id.menu_profile) {
                     replaceFragment(new ProfileFragment());

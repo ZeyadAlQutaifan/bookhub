@@ -8,6 +8,7 @@ public class User {
 
     private String deviceTokens ;
 
+    private String phone ;
     public User() {
     }
 
@@ -16,6 +17,14 @@ public class User {
         this.email = email;
         this.imageUri = imageUri;
         this.deviceTokens = deviceTokens;
+    }
+
+    public User(String fullName, String email, String imageUri, String deviceTokens, String phone) {
+        this.fullName = fullName;
+        this.email = email;
+        this.imageUri = imageUri;
+        this.deviceTokens = deviceTokens;
+        this.phone = phone;
     }
 
     public String getFullName() {
@@ -48,5 +57,13 @@ public class User {
 
     public void setDeviceTokens(String deviceTokens) {
         this.deviceTokens = deviceTokens;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }
