@@ -69,6 +69,8 @@
     <string name="edit_profile">Edit Profile</string>
     <string name="save">Save</string>
     <string name="update_profile_picture">Update Profile Picture</string>
+    <string name="delete">Delete</string>
+    <string name="my_books">By Books</string>
 
 
 </resources>

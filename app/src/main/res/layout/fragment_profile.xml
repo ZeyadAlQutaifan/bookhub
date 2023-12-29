@@ -124,12 +124,64 @@
                         android:textAppearance="?attr/textAppearanceTitleMedium" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnMyPosts"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:background="?colorSecondary"
+                        android:elevation="2dp"
+                        app:contentPadding="8dp"
+                        app:shapeAppearance="?shapeAppearanceSmallComponent"
+                        app:srcCompat="@drawable/baseline_phone_android_24"
+                        app:tint="?colorOnSecondary"
+                        tools:ignore="UnusedAttribute" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/my_books"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="end"
+                            android:layout_margin="10dp"
+                            android:background="?colorSecondary"
+                            android:elevation="2dp"
+                            app:contentPadding="8dp"
+                            app:shapeAppearance="?shapeAppearanceSmallComponent"
+                            app:srcCompat="@drawable/baseline_arrow_forward_ios_24"
+                            app:tint="?colorOnSecondary"
+                            tools:ignore="UnusedAttribute" />
+                    </FrameLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
     </ScrollView>
 
     <Button
         style="@style/Widget.Material3.Button.ElevatedButton.Icon"
-        android:id="@+id/button"
+        android:id="@+id/btnSignout"
         android:layout_width="0dp"
         android:paddingVertical="16dp"
         android:layout_height="wrap_content"

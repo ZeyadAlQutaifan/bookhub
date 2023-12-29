@@ -28,4 +28,8 @@
         <item name="colorSurfaceInverse">@color/md_theme_dark_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_dark_inversePrimary</item>
     </style>
+    <style name="ErrorButtonStyle" parent="@style/Widget.Material3.Button.UnelevatedButton">
+        <item name="android:background">?attr/colorError</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
 </resources>

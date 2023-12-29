@@ -38,6 +38,11 @@ public class Database {
     public static Task<DocumentSnapshot> getBook(String bookId) {
         return booksRef().document(bookId).get();
     }
+    @NonNull
+    public static Task<Void> deleteBook(String bookId) {
+        return booksRef().document(bookId).delete();
+    }
+
 
     public static Task<DocumentSnapshot> getUser(String userId) {
         return usersRef().document(userId).get();
