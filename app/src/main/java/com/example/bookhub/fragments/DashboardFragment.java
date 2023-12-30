@@ -9,10 +9,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import com.example.bookhub.R;
 import com.example.bookhub.adapters.BookRecyclerAdapter;
+import com.example.bookhub.components.FilterDialog;
 import com.example.bookhub.databinding.FragmentDashboardBinding;
 import com.example.bookhub.models.Book;
 import com.example.bookhub.util.Database;
@@ -24,13 +25,38 @@ public class DashboardFragment extends Fragment {
 
     FragmentDashboardBinding binding;
     Query query;
-    BookRecyclerAdapter bookRecyclerAdapter ;
+    BookRecyclerAdapter bookRecyclerAdapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         query = Database.booksRef();
+        fillList(query);
+
+        binding.btnShowFilter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FilterDialog filterDialog = new FilterDialog(getContext());
+                filterDialog.setPositiveButton(
+                                "Filter",
+                                (dialog, which) -> {
+                                   Query query1 = buildCriteria(filterDialog);
+                                   fillList(query1);
+                                })
+                        .show();
+
+            }
+        });
+
+
+
+
+        return binding.getRoot();
+    }
+
+    private void fillList(Query query){
         FirestoreRecyclerOptions<Book> bookOptions = new FirestoreRecyclerOptions.Builder<Book>()
                 .setQuery(query, Book.class)
                 .build();
@@ -39,26 +65,16 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onItemClick(String placeId) {
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragment_container,  BookPageFragment.newInstance(placeId));
+                transaction.replace(R.id.fragment_container, BookPageFragment.newInstance(placeId));
                 transaction.addToBackStack(null);
                 transaction.commit();
             }
         };
-        bookRecyclerAdapter = new BookRecyclerAdapter(bookOptions ,itemClickListener) ;
+        bookRecyclerAdapter = new BookRecyclerAdapter(bookOptions, itemClickListener);
         binding.recyclerBooks.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.recyclerBooks.setAdapter(bookRecyclerAdapter);
-        String[] universities = getResources().getStringArray(R.array.jordan_universities);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.list_item, universities);
-        binding.etUniversity.setAdapter(adapter);
-
-
-        String[] departments = getResources().getStringArray(R.array.departments_array);
-        ArrayAdapter<String> departmentsAdapter = new ArrayAdapter<>(getActivity(), R.layout.list_item, departments);
-        binding.etDepartments.setAdapter(departmentsAdapter);
-
-        return binding.getRoot();
+        bookRecyclerAdapter.startListening();
     }
-
     @Override
     public void onStart() {
         super.onStart();
@@ -69,6 +85,22 @@ public class DashboardFragment extends Fragment {
     public void onStop() {
         super.onStop();
         bookRecyclerAdapter.stopListening();
+    }
+
+
+    private Query buildCriteria(FilterDialog filterDialog) {
+        query = Database.booksRef();
+        if (!filterDialog.getUniversityText().isEmpty() && filterDialog.getUniversityText() != null) {
+            query = query.whereEqualTo("university", filterDialog.getUniversityText());
+        }
+        if (!filterDialog.getDepartmentsText().isEmpty() && filterDialog.getDepartmentsText() != null) {
+            query = query.whereEqualTo("department", filterDialog.getDepartmentsText());
+        }
+        if (!filterDialog.getCategoryText().isEmpty() && filterDialog.getCategoryText() != null) {
+            query = query.whereEqualTo("type", filterDialog.getCategoryText());
+        }
+        query = query.orderBy("creationTime" , Query.Direction.DESCENDING);
+        return query;
     }
 
 }

@@ -55,10 +55,16 @@ public class MyBookRecyclerAdapter extends FirestoreRecyclerAdapter<Book, MyBook
         holder.tvTitle.setText(model.getTitle());
         holder.chDepartment.setText(model.getDepartment());
         holder.chpUniversity.setText(model.getUniversity());
-        Glide.with(holder.itemView.getContext())
-                .load(model.getImages().get(0))
-                .into(holder.imgBook);
-
+        if (model.getImages().size() >0){
+            Glide.with(holder.itemView.getContext())
+                    .load(model.getImages().get(0))
+                    .into(holder.imgBook);
+        }
+        else {
+            Glide.with(holder.itemView.getContext())
+                    .load(R.drawable.no_image)
+                    .into(holder.imgBook);
+        }
     }
 
     @NonNull

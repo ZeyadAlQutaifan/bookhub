@@ -42,10 +42,19 @@ public class BookRecyclerAdapter extends FirestoreRecyclerAdapter<Book , BookRec
         holder.tvTitle.setText(model.getTitle());
         holder.chDepartment.setText(model.getDepartment());
         holder.chpUniversity.setText(model.getUniversity());
+        holder.chType.setText(model.getType());
 
-        Glide.with(holder.itemView.getContext())
-                .load(model.getImages().get(0))
-                .into(holder.imgBook);
+        if (model.getImages().size() >0){
+            Glide.with(holder.itemView.getContext())
+                    .load(model.getImages().get(0))
+                    .into(holder.imgBook);
+        }
+        else {
+            Glide.with(holder.itemView.getContext())
+                    .load(R.drawable.no_image)
+                    .into(holder.imgBook);
+        }
+
 
         // TODO : set user data
         Database.getUser(model.getWriterId()).addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -81,6 +90,7 @@ public class BookRecyclerAdapter extends FirestoreRecyclerAdapter<Book , BookRec
         RoundedImageView imgBook;
         Chip chpUniversity ;
         Chip chDepartment ;
+        Chip chType ;
         RoundedImageView imgUser ;
 
          public BookViewHolder(@NonNull View itemView) {
@@ -90,6 +100,7 @@ public class BookRecyclerAdapter extends FirestoreRecyclerAdapter<Book , BookRec
              imgBook = itemView.findViewById(R.id.imgBook) ;
              chpUniversity = itemView.findViewById(R.id.chpUniversity) ;
              chDepartment = itemView.findViewById(R.id.chDepartment) ;
+             chType = itemView.findViewById(R.id.chType) ;
              imgUser = itemView.findViewById(R.id.imgUser) ;
              materialCardView = itemView.findViewById(R.id.materialCardView);
              materialCardView.setOnClickListener(new View.OnClickListener() {

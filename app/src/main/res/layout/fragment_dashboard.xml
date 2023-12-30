@@ -5,64 +5,38 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginHorizontal="8dp"
     tools:context=".fragments.DashboardFragment">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2"
-        android:layout_marginTop="8dp"
+<FrameLayout
+    android:id="@+id/btnShowFilter"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?colorSecondary">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
-        >
-        <com.google.android.material.textfield.MaterialAutoCompleteTextView
-            android:id="@+id/etUniversity"
+        android:paddingVertical="8dp"
+       >
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_margin="4dp"
+            android:background="?attr/colorTertiaryContainer"
+            android:elevation="2dp"
+            app:contentPadding="8dp"
+            app:shapeAppearance="?shapeAppearanceSmallComponent"
+            app:srcCompat="@drawable/baseline_filter_list_24"
+            app:tint="?colorOnSecondary"
+            tools:ignore="UnusedAttribute" />
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="none"
-            android:hint="University"
-            android:layout_marginTop="8dp"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout3"
-        android:layout_marginTop="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
-        >
-        <com.google.android.material.textfield.MaterialAutoCompleteTextView
-            android:id="@+id/etDepartments"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="none"
-            android:hint="Collage"
-            android:layout_marginTop="8dp"/>
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.button.MaterialButtonToggleGroup
-        android:id="@+id/toggleButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        app:checkedButton="@id/btnLost"
-        app:singleSelection="true">
-        <Button
-            style="?attr/materialButtonOutlinedStyle"
-            android:id="@+id/btnLost"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="I need" />
-
-        <Button
-            style="?attr/materialButtonOutlinedStyle"
-            android:id="@+id/btnFound"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="I have" />
-    </com.google.android.material.button.MaterialButtonToggleGroup>
+            android:layout_gravity="center_vertical"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:text="@string/filter"/>
+    </LinearLayout>
+</FrameLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerBooks"
         android:layout_width="match_parent"

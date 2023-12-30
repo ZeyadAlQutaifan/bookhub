@@ -20,6 +20,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:backgroundTint="?attr/colorTertiaryContainer"
+        app:navigationIconTint="?attr/colorPrimaryContainer"
         app:menu="@menu/bottom_bar_menu"
         android:fitsSystemWindows="true"/>
 
