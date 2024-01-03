@@ -43,7 +43,8 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        Database.getUser(Authentication.getUserId()).addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        Database.getUser(Authentication.getUserId())
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {

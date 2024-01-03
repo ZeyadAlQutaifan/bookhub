@@ -34,6 +34,7 @@ public class UpdateActivity extends AppCompatActivity {
     String userImageUri;
     Uri newUserImageUri;
     private ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

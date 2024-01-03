@@ -14,72 +14,86 @@
         android:layout_marginBottom="4dp"
         android:clickable="true"
         android:focusable="true"
-        app:cardBackgroundColor="?attr/colorSecondaryContainer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
             android:orientation="vertical">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="4dp">
-
+                android:weightSum="2">
                 <com.makeramen.roundedimageview.RoundedImageView
                     android:id="@+id/imgBook"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:background="@android:color/transparent"
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_add_image"
                     app:backgroundTintMode="add"
                     app:riv_corner_radius="15dp" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="4dp">
 
 
-                <TextView
-                    android:id="@+id/tvTitle"
-                    style="?attr/textAppearanceHeadline5"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="8dp"
-                    android:text="@string/title" />
+
+
+                        <TextView
+                            android:id="@+id/tvTitle"
+                            style="?attr/textAppearanceHeadline5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="8dp"
+                            android:text="@string/title" />
 
 
 
 
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.chip.ChipGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chpUniversity"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/university" />
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chDepartment"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/department" />
+
+                        </com.google.android.material.chip.ChipGroup>
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
 
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <com.google.android.material.chip.ChipGroup
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chpUniversity"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/university" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chDepartment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/department" />
-
-                </com.google.android.material.chip.ChipGroup>
-            </LinearLayout>
-
             <com.google.android.material.divider.MaterialDivider
                 android:id="@+id/materialDivider"
                 android:layout_width="match_parent"
@@ -96,7 +110,6 @@
                 android:contentDescription="@string/delete"
                 android:text="@string/delete"
                 app:icon="@drawable/baseline_delete_forever_24" />
-
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
