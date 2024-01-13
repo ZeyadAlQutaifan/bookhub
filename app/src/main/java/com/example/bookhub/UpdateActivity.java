@@ -88,12 +88,12 @@ public class UpdateActivity extends AppCompatActivity {
 
     private void updateUserInfo() {
         progressDialog.show();
-        String username = Objects.requireNonNull(binding.txtUserName.getText()).toString().trim();
+        String username = Objects.requireNonNull(binding.etFullName.getText()).toString().trim();
         String email = Objects.requireNonNull(binding.txtUserEmail.getText()).toString().trim();
         String phone = Objects.requireNonNull(binding.txtUserPhone.getText()).toString().trim();
         if (username.isEmpty()) {
-            binding.txtUserName.setError("Required!");
-            binding.txtUserName.requestFocus();
+            binding.etFullName.setError("Required!");
+            binding.etFullName.requestFocus();
             return;
         }
 
@@ -130,7 +130,7 @@ public class UpdateActivity extends AppCompatActivity {
 
     private void fillUserInfo(User user) {
         userImageUri = user.getImageUri();
-        binding.txtUserName.setText(user.getFullName());
+        binding.etFullName.setText(user.getFullName());
         binding.txtUserPhone.setText(user.getPhone());
         binding.txtUserEmail.setText(user.getEmail());
         binding.btnSave.setEnabled(true);

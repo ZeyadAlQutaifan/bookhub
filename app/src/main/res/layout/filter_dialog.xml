@@ -14,12 +14,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/university"
-        android:textAppearance="?attr/textAppearanceBodySmall"
         android:textColor="?attr/colorPrimary" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout2"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:startIconDrawable="@drawable/baseline_home_24">
@@ -44,13 +43,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/department"
-        android:textAppearance="?attr/textAppearanceBodySmall"
-
         android:textColor="?attr/colorPrimary" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout3"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:startIconDrawable="@drawable/baseline_home_24">
@@ -75,13 +72,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/category"
-        android:textAppearance="?attr/textAppearanceBodySmall"
 
         android:textColor="?attr/colorPrimary" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout4"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:startIconDrawable="@drawable/baseline_category_24">

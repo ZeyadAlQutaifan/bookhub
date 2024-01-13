@@ -100,7 +100,7 @@
         android:layout_height="wrap_content"
         android:padding="2dp"
         android:text="@string/create_account"
-        android:textColor="@color/md_theme_dark_primaryContainer"
+        android:textColor="@color/blue_med"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/tvSignUp4"
         app:layout_constraintStart_toEndOf="@+id/tvSignUp4"

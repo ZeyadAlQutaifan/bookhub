@@ -80,7 +80,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:inputType="text"
-                        android:textColor="@color/md_theme_dark_primaryContainer"
                         android:textCursorDrawable="@null" />
 
 
@@ -93,25 +92,25 @@
                     android:layout_marginTop="8dp" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/signup_email"
+                    android:id="@+id/textInputLayoutPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/enter_email"
                     android:layout_marginTop="16dp"
-                    app:boxStrokeWidthFocused="2dp"
-                    app:endIconMode="clear_text"
-                    app:startIconDrawable="@drawable/baseline_email_24">
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:startIconDrawable="@drawable/baseline_email_24"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etEmail"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/enter_email"
+                        android:imeOptions="actionNext"
                         android:inputType="textEmailAddress"
-                        android:textColor="@color/md_theme_dark_primaryContainer"
-                        android:textCursorDrawable="@null" />
-
-
+                        android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
+
 
                 <com.google.android.material.divider.MaterialDivider
                     android:layout_width="match_parent"
@@ -134,10 +133,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:inputType="phone"
-                        android:textColor="@color/md_theme_dark_primaryContainer"
                         android:textCursorDrawable="@null" />
-
-
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.divider.MaterialDivider
@@ -162,7 +158,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:inputType="textPassword"
-                        android:textColor="@color/md_theme_dark_primaryContainer"
                         android:textCursorDrawable="@null" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -187,7 +182,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:inputType="textPassword"
-                        android:textColor="@color/md_theme_dark_primaryContainer"
                         android:textCursorDrawable="@null" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>

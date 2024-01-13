@@ -32,7 +32,6 @@
                 android:layout_gravity="start"
                 android:layout_marginTop="8dp"
                 android:text="@string/user_name"
-                android:textAppearance="?attr/textAppearanceTitleLarge"
                 android:textColor="?attr/colorOnSurface"
                 android:textStyle="bold" />
 
@@ -66,7 +65,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:text="@string/enter_email"
-                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+                        />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -100,7 +99,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:text="@string/enter_phone"
-                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+                       />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -135,7 +134,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:text="@string/my_books"
-                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+                         />
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -161,7 +160,7 @@
     android:layout_height="0dp"
     android:layout_weight="1">
     <Button
-        style="@style/Widget.Material3.Button.IconButton.Filled"
+        style="@style/btnStyleSecondary"
         android:id="@+id/btnEditProfile"
         android:layout_width="match_parent"
         android:paddingVertical="16dp"
@@ -174,7 +173,7 @@
 
 
     <Button
-        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+        style="@style/btnStyle"
         android:id="@+id/btnSignout"
         android:layout_width="match_parent"
         android:paddingVertical="16dp"

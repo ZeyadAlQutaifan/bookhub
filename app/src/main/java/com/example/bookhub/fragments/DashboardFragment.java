@@ -35,20 +35,7 @@ public class DashboardFragment extends Fragment {
         query = Database.booksRef();
         fillList(query);
 
-        binding.btnShowFilter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FilterDialog filterDialog = new FilterDialog(getContext());
-                filterDialog.setPositiveButton(
-                                "Filter",
-                                (dialog, which) -> {
-                                   Query query1 = buildCriteria(filterDialog);
-                                   fillList(query1);
-                                })
-                        .show();
 
-            }
-        });
 
 
 

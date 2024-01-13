@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="?attr/colorPrimaryContainer"
     android:layout_height="match_parent"
     tools:context=".UpdateActivity">
 
@@ -66,35 +65,26 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="4dp"
                     android:text="@string/update_profile_picture"
-                    android:textAppearance="?attr/textAppearanceBodySmall"
-                    android:textColor="?attr/colorPrimary" />
+                   />
 
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/user_name"
-                    android:textAppearance="?attr/textAppearanceBodySmall"
-                    android:textColor="?attr/colorPrimary" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/signup_fullname"
-                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:id="@+id/txtUserName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/enter_full_name"
                     app:boxStrokeWidthFocused="2dp"
+                    android:layout_marginTop="16dp"
                     app:endIconMode="clear_text"
                     app:startIconDrawable="@drawable/baseline_edit_24">
 
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtUserName"
+                        android:id="@+id/etFullName"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:inputType="text"
-                        android:textColor="@color/md_theme_dark_primaryContainer"
                         android:textCursorDrawable="@null" />
 
 
@@ -106,54 +96,40 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/enter_email"
-                    android:textAppearance="?attr/textAppearanceBodySmall"
-                    android:textColor="?attr/colorPrimary" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/signup_email"
-                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:id="@+id/textInputLayoutPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/enter_email"
-                    app:boxStrokeWidthFocused="2dp"
-                    app:endIconMode="clear_text"
-                    app:startIconDrawable="@drawable/baseline_email_24">
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:startIconDrawable="@drawable/baseline_email_24"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtUserEmail"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/enter_email"
+                        android:imeOptions="actionNext"
                         android:inputType="textEmailAddress"
-                        android:textColor="@color/md_theme_dark_primaryContainer"
-                        android:textCursorDrawable="@null" />
-
-
+                        android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
+
 
                 <com.google.android.material.divider.MaterialDivider
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/enter_phone"
-                    android:textAppearance="?attr/textAppearanceBodySmall"
-                    android:textColor="?attr/colorPrimary" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/signup_phone"
-                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/enter_phone"
+                    android:layout_marginTop="16dp"
                     app:boxStrokeWidthFocused="2dp"
                     app:endIconMode="clear_text"
                     app:startIconDrawable="@drawable/baseline_phone_android_24">
@@ -163,10 +139,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:inputType="phone"
-                        android:textColor="@color/md_theme_dark_primaryContainer"
                         android:textCursorDrawable="@null" />
-
-
                 </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -178,7 +151,7 @@
 
     <Button
         android:id="@+id/btnSave"
-        style="@style/Widget.Material3.Button.UnelevatedButton"
+        style="@style/btnStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"

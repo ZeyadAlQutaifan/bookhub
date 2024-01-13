@@ -66,7 +66,6 @@
           android:layout_height="wrap_content"
           android:layout_marginTop="16dp"
           android:text="@string/university"
-          android:textAppearance="?attr/textAppearanceBodySmall"
           android:textColor="?attr/colorPrimary" />
       <androidx.cardview.widget.CardView
           android:layout_width="match_parent"
@@ -95,7 +94,6 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="?attr/textAppearanceTitleMedium"
                 android:text="@string/title"
                 android:layout_gravity="center_vertical"
                 android:id="@+id/txtBookUniversity"/>

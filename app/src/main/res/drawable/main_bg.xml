@@ -5,16 +5,16 @@
     android:viewportHeight="960">
   <path
       android:pathData="M0,0h540v960h-540z"
-      android:fillColor="@color/md_theme_light_onPrimary"/>
+      android:fillColor="@color/blue_med"/>
   <path
       android:pathData="M0,592L77,693L154,628L231,689L309,710L386,719L463,708L540,644L540,961L463,961L386,961L309,961L231,961L154,961L77,961L0,961Z"
       android:fillColor="?attr/colorTertiary"/>
   <path
       android:pathData="M0,729L77,741L154,677L231,660L309,739L386,644L463,683L540,674L540,961L463,961L386,961L309,961L231,961L154,961L77,961L0,961Z"
-      android:fillColor="@color/md_theme_dark_onPrimary"/>
+      android:fillColor="@color/blue_med"/>
   <path
       android:pathData="M0,706L77,808L154,772L231,714L309,716L386,736L463,739L540,759L540,961L463,961L386,961L309,961L231,961L154,961L77,961L0,961Z"
-      android:fillColor="@color/md_theme_light_inversePrimary"/>
+      android:fillColor="@color/blue_med"/>
   <path
       android:pathData="M0,855L77,810L154,815L231,827L309,850L386,804L463,788L540,816L540,961L463,961L386,961L309,961L231,961L154,961L77,961L0,961Z"
       android:fillColor="?attr/colorPrimaryContainer"/>
