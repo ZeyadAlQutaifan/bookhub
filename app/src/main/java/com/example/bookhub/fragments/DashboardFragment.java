@@ -16,8 +16,11 @@ import com.example.bookhub.adapters.BookRecyclerAdapter;
 import com.example.bookhub.components.FilterDialog;
 import com.example.bookhub.databinding.FragmentDashboardBinding;
 import com.example.bookhub.models.Book;
+import com.example.bookhub.util.Authentication;
 import com.example.bookhub.util.Database;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.Query;
 
 
@@ -34,13 +37,17 @@ public class DashboardFragment extends Fragment {
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         query = Database.booksRef();
         fillList(query);
-
-
-
-
-
-
+        getUserInfo();
         return binding.getRoot();
+    }
+
+    private void getUserInfo() {
+        Database.getUser(Authentication.getUserId()).addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                binding.tvUsernameHome.setText("Hello, " + documentSnapshot.get("fullName"));
+            }
+        });
     }
 
     private void fillList(Query query){

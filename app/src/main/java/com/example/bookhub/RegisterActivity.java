@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -31,6 +32,8 @@ public class RegisterActivity extends AppCompatActivity {
 
     ActivityRegisterBinding binding ;
     Uri imgUri;
+    private ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +43,11 @@ public class RegisterActivity extends AppCompatActivity {
         binding.btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                progressDialog = new ProgressDialog(RegisterActivity.this);
+                progressDialog.setMessage("Loading...");
+                progressDialog.setCancelable(false);
+                progressDialog.show();
                 createUser();
             }
         });
@@ -117,13 +125,19 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onSuccess(String s) {
                         newUser.setImageUri(s);
                         Database.writeNewUser(authResult.getUser().getUid() , newUser)
-                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
+                                    public void onSuccess(Void unused) {
                                         startActivity(new Intent(RegisterActivity.this , MainActivity.class));
                                         finish();
                                     }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(RegisterActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                                    }
                                 });
+
                     }
                 });
 

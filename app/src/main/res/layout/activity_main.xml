@@ -20,7 +20,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:backgroundTint="@color/peach"
         app:menu="@menu/bottom_bar_menu"
+        app:titleTextColor="@color/blue_med"
         android:fitsSystemWindows="true"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

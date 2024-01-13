@@ -77,10 +77,9 @@ public class MyBookRecyclerAdapter extends FirestoreRecyclerAdapter<Book, MyBook
                                                         public void onComplete(@NonNull Task<Void> task) {
                                                             if (task.isSuccessful()) {
                                                                 notifyItemRemoved(position);
-
                                                                 // If you have dynamic data or want to notify the adapter about
                                                                 // changes affecting the entire dataset, use notifyItemRangeChanged
-                                                                notifyItemRangeChanged(position, getItemCount());
+                                                          //      notifyItemRangeChanged(position, getItemCount());
                                                             } else {
                                                                 // Handle the deletion failure
                                                             }

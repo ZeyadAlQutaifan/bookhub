@@ -33,14 +33,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLines="1"
-                android:textAppearance="?attr/textAppearanceHeadlineSmall"
                 tools:text="farhan" />
             <TextView
                 android:id="@+id/temp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLines="1"
-                android:textAppearance="?attr/textAppearanceBodyLarge"
                 tools:text="temp" />
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"

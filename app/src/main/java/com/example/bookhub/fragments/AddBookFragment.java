@@ -74,6 +74,7 @@ public class AddBookFragment extends Fragment {
             public void onClick(View v) {
                 progressDialog = new ProgressDialog(getActivity());
                 progressDialog.setMessage("Loading...");
+                progressDialog.setCancelable(false);
                 progressDialog.show();
                 Book book = new Book(); 
                 book.setWriterId(Authentication.getUserId());
