@@ -1,47 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/profile_bg"
+    android:orientation="vertical"
+    android:background="@color/text_shadow_white"
     tools:context=".fragments.ProfileFragment">
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
             android:gravity="center"
             android:orientation="vertical">
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/btnEditProfile"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="end"
-                android:background="?colorOnSecondaryContainer"
-                android:elevation="2dp"
-                app:contentPadding="8dp"
-                app:shapeAppearance="?shapeAppearanceSmallComponent"
-                app:srcCompat="@drawable/baseline_edit_24"
-                app:tint="?colorOnSecondary"
-                tools:ignore="UnusedAttribute" />
-            <de.hdodenhof.circleimageview.CircleImageView
+
+            <ImageView
                 android:id="@+id/userImage"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="16dp"
                 android:src="@drawable/ic_add_image"
+                android:scaleType="centerCrop"
                 app:civ_border_color="?attr/colorOnSecondary"
                 app:civ_border_width="3dp" />
 
@@ -49,7 +29,7 @@
                 android:id="@+id/txtUserName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="start"
                 android:layout_marginTop="8dp"
                 android:text="@string/user_name"
                 android:textAppearance="?attr/textAppearanceTitleLarge"
@@ -60,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                app:cardCornerRadius="10dp">
+               >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -93,8 +73,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:cardCornerRadius="10dp">
+>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -125,14 +104,13 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <com.google.android.material.card.MaterialCardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/btnMyPosts"
                 android:clickable="true"
                 android:focusable="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:cardCornerRadius="10dp">
+>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -175,14 +153,30 @@
                             tools:ignore="UnusedAttribute" />
                     </FrameLayout>
                 </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
-    </ScrollView>
+
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1">
+    <Button
+        style="@style/Widget.Material3.Button.IconButton.Filled"
+        android:id="@+id/btnEditProfile"
+        android:layout_width="match_parent"
+        android:paddingVertical="16dp"
+        android:layout_height="wrap_content"
+        android:text="@string/edit_profile"
+        app:icon="@drawable/baseline_edit_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView2" />
+</FrameLayout>
+
 
     <Button
-        style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
         android:id="@+id/btnSignout"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:paddingVertical="16dp"
         android:layout_height="wrap_content"
         android:text="@string/signout"
@@ -191,4 +185,4 @@
         app:layout_constraintEnd_toEndOf="@+id/scrollView2" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

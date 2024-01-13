@@ -54,44 +54,13 @@ public class MyBooksFragment extends Fragment {
             transaction.commit();
         }
     };
-    MyBookRecyclerAdapter.OnDeleteClickListener onDeleteClickListener = new MyBookRecyclerAdapter.OnDeleteClickListener() {
-        @Override
-        public void onDeleteClick(String bookId) {
-            new AlertDialog.Builder(getActivity())
-                    .setTitle("Delete")
-                    .setMessage("Are you sure you want to delete this item")
-                    .setCancelable(false)
-                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Database.deleteBook(bookId)
-                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if (task.isSuccessful()) {
-                                                // Book deleted successfully
-                                                // Now update the RecyclerView
-                                                fillRecyclerView();
-                                                // or use notifyItemRemoved(position) if you know the position
-                                            } else {
-                                                // Handle the deletion failure
-                                            }
-                                        }
-                                    });
-                        }
-                    })
-                    .setNegativeButton("No", null)
-                    .show();
-        }
-
-    };
 
     private void fillRecyclerView() {
         Query query = Database.booksRef().whereEqualTo("writerId", Authentication.getUserId()).orderBy("creationTime", Query.Direction.DESCENDING);
         FirestoreRecyclerOptions<Book> bookOptions = new FirestoreRecyclerOptions.Builder<Book>()
                 .setQuery(query, Book.class)
                 .build();
-        myBookRecyclerAdapter = new MyBookRecyclerAdapter(bookOptions, onItemClickListener, onDeleteClickListener);
+        myBookRecyclerAdapter = new MyBookRecyclerAdapter(bookOptions, onItemClickListener);
         binding.recyclerBooks.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.recyclerBooks.setAdapter(myBookRecyclerAdapter);
         myBookRecyclerAdapter.startListening();

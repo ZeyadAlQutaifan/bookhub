@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-android:layout_margin="8dp"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
 
-    <com.google.android.material.card.MaterialCardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/materialCardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,105 +30,72 @@ android:layout_margin="8dp"
                 android:layout_height="wrap_content"
                 android:paddingBottom="4dp">
 
-                <com.makeramen.roundedimageview.RoundedImageView
+                <ImageView
                     android:id="@+id/imgBook"
-                    android:layout_width="80dp"
-                    app:riv_border_color="?attr/colorTertiaryContainer"
-                    app:riv_border_width="3dp"
-                    android:layout_height="80dp"
+                    android:layout_width="100dp"
+                    android:layout_height="160dp"
                     android:background="@android:color/transparent"
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_add_image"
                     app:backgroundTintMode="add"
+                    app:riv_border_color="?attr/colorTertiaryContainer"
+                    app:riv_border_width="3dp"
                     app:riv_corner_radius="15dp" />
 
-
-                <TextView
-                    android:id="@+id/tvTitle"
-                    style="?attr/textAppearanceHeadline5"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="8dp"
-                    android:text="@string/title" />
+                    android:layout_margin="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvTitle"
+                        style="?attr/textAppearanceHeadline5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.chip.ChipGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chpUniversity"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/university" />
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chDepartment"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/department" />
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chType"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/department" />
 
 
-
+                        </com.google.android.material.chip.ChipGroup>
+                    </LinearLayout>
+                </LinearLayout>
 
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
 
-                <com.google.android.material.chip.ChipGroup
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chpUniversity"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/university" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chDepartment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/department" />
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chType"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/department" />
-
-
-                </com.google.android.material.chip.ChipGroup>
-            </LinearLayout>
 
             <com.google.android.material.divider.MaterialDivider
                 android:id="@+id/materialDivider"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp" />
-
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:cardCornerRadius="10dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-
-                    <com.makeramen.roundedimageview.RoundedImageView
-                        android:id="@+id/imgUser"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center"
-                        android:layout_margin="5dp"
-                        android:elevation="2dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ic_add_image"
-                        app:contentPadding="8dp"
-                        app:riv_corner_radius="15dp"
-                        tools:ignore="UnusedAttribute" />
-
-
-                    <TextView
-                        android:id="@+id/tvUserName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:textAppearance="?attr/textAppearanceTitleMedium"
-                        android:text="user name" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
 
 
 
@@ -142,5 +109,5 @@ android:layout_margin="8dp"
             </LinearLayout>
         </LinearLayout>
 
-    </com.google.android.material.card.MaterialCardView>
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

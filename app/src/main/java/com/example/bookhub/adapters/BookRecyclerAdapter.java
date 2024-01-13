@@ -4,10 +4,12 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -64,10 +66,6 @@ public class BookRecyclerAdapter extends FirestoreRecyclerAdapter<Book , BookRec
                     DocumentSnapshot documentSnapshot = task.getResult();
                     if (documentSnapshot.exists()){
                        User user =  documentSnapshot.toObject(User.class);
-                       holder.tvUserName.setText(user.getFullName());
-                        Glide.with(holder.itemView.getContext())
-                                .load(user.getImageUri())
-                                .into(holder.imgUser);
                     }
                 }
             }
@@ -83,25 +81,21 @@ public class BookRecyclerAdapter extends FirestoreRecyclerAdapter<Book , BookRec
     }
 
     public class BookViewHolder extends RecyclerView.ViewHolder {
-        MaterialCardView materialCardView;
+        CardView materialCardView;
 
         TextView tvTitle ;
-        TextView tvUserName ;
-        RoundedImageView imgBook;
+        ImageView imgBook;
         Chip chpUniversity ;
         Chip chDepartment ;
         Chip chType ;
-        RoundedImageView imgUser ;
 
          public BookViewHolder(@NonNull View itemView) {
             super(itemView);
              tvTitle = itemView.findViewById(R.id.tvTitle) ;
-             tvUserName = itemView.findViewById(R.id.tvUserName) ;
              imgBook = itemView.findViewById(R.id.imgBook) ;
              chpUniversity = itemView.findViewById(R.id.chpUniversity) ;
              chDepartment = itemView.findViewById(R.id.chDepartment) ;
              chType = itemView.findViewById(R.id.chType) ;
-             imgUser = itemView.findViewById(R.id.imgUser) ;
              materialCardView = itemView.findViewById(R.id.materialCardView);
              materialCardView.setOnClickListener(new View.OnClickListener() {
                  @Override

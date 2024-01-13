@@ -15,6 +15,8 @@ import com.example.bookhub.fragments.AddBookFragment;
 import com.example.bookhub.fragments.DashboardFragment;
 import com.example.bookhub.fragments.ProfileFragment;
 import com.example.bookhub.fragments.ChatsFragment;
+import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;

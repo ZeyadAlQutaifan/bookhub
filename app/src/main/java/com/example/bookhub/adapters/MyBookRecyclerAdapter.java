@@ -5,8 +5,11 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,18 +37,15 @@ public class MyBookRecyclerAdapter extends FirestoreRecyclerAdapter<Book, MyBook
     public interface OnItemClickListener {
         void onItemClick(String book);
     }
-    public interface OnDeleteClickListener {
-        void onDeleteClick(String bookId);
-    }
 
 
     private OnItemClickListener onItemClickListener;
-    private OnDeleteClickListener onDeleteClickListener;
 
-    public MyBookRecyclerAdapter(@NonNull FirestoreRecyclerOptions<Book> options, OnItemClickListener onItemClickListener ,  OnDeleteClickListener onDeleteClickListener) {
+
+    public MyBookRecyclerAdapter(@NonNull FirestoreRecyclerOptions<Book> options, OnItemClickListener onItemClickListener ) {
         super(options);
         this.onItemClickListener = onItemClickListener;
-        this.onDeleteClickListener = onDeleteClickListener;
+
 
     }
 
@@ -53,8 +53,52 @@ public class MyBookRecyclerAdapter extends FirestoreRecyclerAdapter<Book, MyBook
     @Override
     protected void onBindViewHolder(@NonNull MyBookViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull Book model) {
         holder.tvTitle.setText(model.getTitle());
-        holder.chDepartment.setText(model.getDepartment());
-        holder.chpUniversity.setText(model.getUniversity());
+        holder.options.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popupMenu = new PopupMenu(holder.itemView.getContext(), v);
+                popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
+
+                // Set an item click listener for the popup menu
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        if (item.getItemId() == R.id.menu_delete){
+                            new AlertDialog.Builder(holder.itemView.getContext())
+                                    .setTitle("Delete")
+                                    .setMessage("Are you sure you want to delete this item")
+                                    .setCancelable(false)
+                                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            Database.deleteBook(getSnapshots().getSnapshot(position).getId())
+                                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                        @Override
+                                                        public void onComplete(@NonNull Task<Void> task) {
+                                                            if (task.isSuccessful()) {
+                                                                notifyItemRemoved(position);
+
+                                                                // If you have dynamic data or want to notify the adapter about
+                                                                // changes affecting the entire dataset, use notifyItemRangeChanged
+                                                                notifyItemRangeChanged(position, getItemCount());
+                                                            } else {
+                                                                // Handle the deletion failure
+                                                            }
+                                                        }
+                                                    });
+                                        }
+                                    })
+                                    .setNegativeButton("No", null)
+                                    .show();
+
+                        }
+                        return true;
+                    }
+                });
+                // Show the popup menu
+                popupMenu.show();
+            }
+        });
         if (model.getImages().size() >0){
             Glide.with(holder.itemView.getContext())
                     .load(model.getImages().get(0))
@@ -79,18 +123,14 @@ public class MyBookRecyclerAdapter extends FirestoreRecyclerAdapter<Book, MyBook
 
         TextView tvTitle;
         RoundedImageView imgBook;
-        Chip chpUniversity;
-        Chip chDepartment;
-        ExtendedFloatingActionButton btnDelete;
+        ImageView options;
 
         public MyBookViewHolder(@NonNull View itemView) {
             super(itemView);
             tvTitle = itemView.findViewById(R.id.tvTitle);
             imgBook = itemView.findViewById(R.id.imgBook);
-            chpUniversity = itemView.findViewById(R.id.chpUniversity);
-            chDepartment = itemView.findViewById(R.id.chDepartment);
             materialCardView = itemView.findViewById(R.id.materialCardView);
-            btnDelete = itemView.findViewById(R.id.btnDelete);
+            options = itemView.findViewById(R.id.options);
 
             materialCardView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -101,14 +141,7 @@ public class MyBookRecyclerAdapter extends FirestoreRecyclerAdapter<Book, MyBook
                     }
                 }
             });
-            btnDelete.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (onDeleteClickListener != null) {
-                        onDeleteClickListener.onDeleteClick(getSnapshots().getSnapshot(getAdapterPosition()).getId());
-                    }
-                }
-            });
+
         }
     }
 }

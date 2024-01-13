@@ -72,6 +72,14 @@
     <string name="delete">Delete</string>
     <string name="my_books">By Books</string>
     <string name="filter">Fliter</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="login_to_continue">Login to continue</string>
+    <string name="username">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="don_t_have_an_account">Dont have account ?</string>
+    <string name="sign_up">Signup</string>
+    <string name="create_account">Create account</string>
 
 
 </resources>
