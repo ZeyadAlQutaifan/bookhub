@@ -44,10 +44,6 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                progressDialog = new ProgressDialog(RegisterActivity.this);
-                progressDialog.setMessage("Loading...");
-                progressDialog.setCancelable(false);
-                progressDialog.show();
                 createUser();
             }
         });
@@ -108,6 +104,10 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
+        progressDialog = new ProgressDialog(RegisterActivity.this);
+        progressDialog.setMessage("Loading...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
         User newUser = new User();
         newUser.setFullName(username);
         newUser.setEmail(email);
