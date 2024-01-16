@@ -32,10 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         binding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressDialog = new ProgressDialog(LoginActivity.this);
-                progressDialog.setMessage("Loading...");
-                progressDialog.setCancelable(false);
-                progressDialog.show();
+
                 login();
             }
         });
@@ -63,6 +60,10 @@ public class LoginActivity extends AppCompatActivity {
             binding.loginEmailEditText.requestFocus();
             return;
         }
+        progressDialog = new ProgressDialog(LoginActivity.this);
+        progressDialog.setMessage("Loading...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
         Authentication.login(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
             public void onSuccess(AuthResult authResult) {
